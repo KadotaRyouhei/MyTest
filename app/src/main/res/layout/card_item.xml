@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="455dp"
+    android:background="#00000000">
+    
+    
+    <RelativeLayout
+        android:id="@+id/rl_card_item"
+        android:layout_width="310dp"
+        android:layout_height="415dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff">
+        
+        <RelativeLayout
+            android:layout_width="310dp"
+            android:layout_height="415dp">
+            <View
+                android:id="@+id/v_card_item"
+                android:layout_width="match_parent"
+                android:layout_height="309dp"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_toRightOf="@id/rl_card_item"
+        android:layout_width="wrap_content"
+        android:layout_height="405dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/lib_search_product_list_rightshadow"
+        />
+
+</RelativeLayout>

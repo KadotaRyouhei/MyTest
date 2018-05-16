@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <import type="entity.People"/>
+        <variable
+            name="people"
+            type="entity.People"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_top"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:background="@color/colorAccent"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:text="@{people.name}"
+            />
+
+        <TextView
+            android:id="@+id/tv_bottom"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:text="@{String.valueOf(people.age)}"
+            />
+    </LinearLayout>
+
+
+</layout>

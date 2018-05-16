@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <customview.MostHotItemView
+        android:id="@+id/hciv_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_margin="4dp"/>
+
+    <customview.MostHotItemView
+        android:id="@+id/hciv_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_margin="4dp"/>
+
+    <customview.MostHotItemView
+        android:id="@+id/hciv_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_margin="4dp"/>
+
+    <customview.MostHotItemView
+        android:id="@+id/hciv_four"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_margin="4dp"/>
+
+</LinearLayout>

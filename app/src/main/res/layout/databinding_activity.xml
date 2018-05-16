@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="user"
+            type="entity.User"/>
+        <variable
+            name="viewmodel"
+            type="com.example.shanliang.mvvmtest.ViewModel"/>
+        <variable
+            name="people"
+            type="entity.People"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <TextView
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:background="@color/colorAccent"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:text="@{user.firstName}"
+            android:onClick="@{viewmodel::updateFirstName}"/>
+
+        <TextView
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:text="@{user.lastName}"
+            android:onClick="@{viewmodel::showToast}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{people.name}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(people.age)}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{people.isMan ? "man" : "women"}'/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</layout>

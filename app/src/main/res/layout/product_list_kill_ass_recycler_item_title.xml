@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="17dp">
+
+
+    <LinearLayout
+        android:id="@+id/ll_title_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/iv_title_top_left"
+            android:layout_width="11dp"
+            android:layout_height="6dp"
+            android:background="@mipmap/kill_ass_title_top_icon_left"/>
+
+        <TextView
+            android:id="@+id/tv_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginRight="6.5dp"
+            android:text="精选好货"
+            android:textSize="15dp"/>
+
+        <ImageView
+            android:id="@+id/iv_title_top_right"
+            android:layout_width="11dp"
+            android:layout_height="6dp"
+            android:background="@mipmap/kill_ass_title_top_icon_right"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title_description"
+        android:layout_below="@id/ll_title_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="14dp"/>
+
+
+
+</RelativeLayout>
