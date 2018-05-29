@@ -33,6 +33,8 @@ public class IndexActivity extends Activity {
     }
 
     private void initData() {
+        addIndex("GoShadowEdge", ShadowEdgeActivity.class);
+        addIndex("GoShadowDrawable", ShadowDrawableActivity.class);
         addIndex("GoMostHot", MostHotActivity.class);
         addIndex("GoHorizonViewPager", HorizonViewPagerActivity.class);
         addIndex("GoNormalViewPager", NormalViewPagerActivity.class);

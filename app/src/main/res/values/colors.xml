@@ -9,4 +9,9 @@
     <!-- custom -->
     <color name="smart_ui_pullable_layout_text_color">#707070</color>
     <color name="smart_ui_loading_layout_text_color">#515151</color>
+
+    <color name="shadow_drawable_003">#07000000</color>
+    <color name="shadow_drawable_050">#80000000</color>
+
+    <color name="bg_drawable_blue">#3f51b5</color>
 </resources>
