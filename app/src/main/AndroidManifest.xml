@@ -33,6 +33,7 @@
         <activity android:name=".MostHotActivity"/>
         <activity android:name=".ShadowDrawableActivity"/>
         <activity android:name=".ShadowEdgeActivity"/>
+        <activity android:name=".AACActivity"/>
         <activity android:name=".KillAssSecondActivity"
             android:configChanges="fontScale|screenSize"
             android:launchMode="singleTop"

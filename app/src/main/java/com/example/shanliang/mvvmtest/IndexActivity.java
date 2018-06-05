@@ -33,6 +33,7 @@ public class IndexActivity extends Activity {
     }
 
     private void initData() {
+        addIndex("GoAACActivity", AACActivity.class);
         addIndex("GoShadowEdge", ShadowEdgeActivity.class);
         addIndex("GoShadowDrawable", ShadowDrawableActivity.class);
         addIndex("GoMostHot", MostHotActivity.class);
