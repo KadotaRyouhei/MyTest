@@ -441,13 +441,13 @@ public class SmartPullableLayout extends ViewGroup implements NestedScrollingPar
             case State.PULL_UP_RELEASE: {
                 setEnabled(false);
 
-                ivProgressPullUp.setVisibility(View.VISIBLE);
-                upProgressAnimation.start();
+                //ivProgressPullUp.setVisibility(View.VISIBLE);
+                //upProgressAnimation.start();
                 tvHintPullUp.setText(R.string.smart_ui_pull_up_release);
 
-                if (mListener != null) {
+                /*if (mListener != null) {
                     mListener.onPullUp();
-                }
+                }*/
             }
             break;
         }

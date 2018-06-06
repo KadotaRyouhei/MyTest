@@ -16,7 +16,7 @@ import entity.TabEntity;
 public class TabLayoutViewPagerAdapter extends PagerAdapter {
 
 
-    private List<RecyclerView> mViewList;
+    private List<View> mViewList;
 
     private List<TabLayoutAdapter> mAdapterList;
 
@@ -24,7 +24,7 @@ public class TabLayoutViewPagerAdapter extends PagerAdapter {
 
     private TabLayoutIF tabLayoutIF;
 
-    public TabLayoutViewPagerAdapter(List<RecyclerView> mViewList, List<TabLayoutAdapter> adapterList, List<TabEntity> tabs) {
+    public TabLayoutViewPagerAdapter(List<View> mViewList, List<TabLayoutAdapter> adapterList, List<TabEntity> tabs) {
         this.mViewList = mViewList;
         mAdapterList = adapterList;
         mTabs = tabs;

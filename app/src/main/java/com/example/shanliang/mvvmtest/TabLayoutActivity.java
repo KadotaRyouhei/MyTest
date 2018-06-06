@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import adapter.TabLayoutAdapter;
 import adapter.TabLayoutViewPagerAdapter;
+import customview.SmartPullableLayout;
 import entity.TabEntity;
 
 /**
@@ -41,13 +43,15 @@ public class TabLayoutActivity extends AppCompatActivity {
 
     private List<TabEntity> mTabs = new ArrayList<>();
 
-    private List<RecyclerView> mViewList = new ArrayList<>();
+    private List<View> mViewList = new ArrayList<>();
 
     private List<TabLayoutAdapter> mAdapterList = new ArrayList<>();
 
     private TabLayoutViewPagerAdapter mViewPagerAapter;
 
     private ViewPager mViewPager;
+
+    private LayoutInflater inflater;
 
     /**
      * 屏幕宽度
@@ -74,6 +78,7 @@ public class TabLayoutActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mContext = TabLayoutActivity.this;
+        inflater = LayoutInflater.from(mContext);
         tlTop = (TabLayout) findViewById(R.id.tl_top);
         mViewPager = (ViewPager) findViewById(R.id.vp_main);
     }
@@ -204,14 +209,16 @@ public class TabLayoutActivity extends AppCompatActivity {
     }
 
     private void addRecyclerViewAndAdapter(List<String> datas) {
-        RecyclerView recyclerView = new RecyclerView(mContext);
+        View view = inflater.inflate(R.layout.tab_scroll_layout,null);
+        SmartPullableLayout smartPullableLayout = view.findViewById(R.id.layout_pullable);//可以对下拉控件做设置
+        RecyclerView recyclerView = view.findViewById(R.id.rcv_content);
         LinearLayoutManager llm = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(llm);
         TabLayoutAdapter adapter = new TabLayoutAdapter(mContext);
         adapter.setData(datas);
         recyclerView.setAdapter(adapter);
         mAdapterList.add(adapter);
-        mViewList.add(recyclerView);
+        mViewList.add(view);
     }
 
 

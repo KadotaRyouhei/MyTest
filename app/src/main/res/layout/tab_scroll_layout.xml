@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_tab_scroll_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <customview.SmartPullableLayout
+        android:id="@+id/layout_pullable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:smart_ui_enable_pull_down="false">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+    </customview.SmartPullableLayout>
+
+</RelativeLayout>
