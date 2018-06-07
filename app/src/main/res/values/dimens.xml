@@ -19,4 +19,8 @@
     <dimen name="smart_ui_loading_layout_error_btn_height">40dp</dimen>
     <dimen name="smart_ui_loading_layout_error_btn_width">120dp</dimen>
 
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_9sp">9sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+
 </resources>
