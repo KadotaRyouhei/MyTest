@@ -115,17 +115,17 @@ public class MergeFragment extends Fragment {
 
     private void initTab() {
         TabEntity tab1 = new TabEntity();
-        tab1.tabName = "西餐";
+        tab1.tabName = "牛排";
         tab1.tabType = 1;
         tab1.viewPagerPosition = 0;
         mTabs.add(tab1);
         TabEntity tab2 = new TabEntity();
-        tab2.tabName = "自助";
+        tab2.tabName = "西餐自助";
         tab2.tabType = 2;
         tab1.viewPagerPosition = 1;
         mTabs.add(tab2);
         TabEntity tab3 = new TabEntity();
-        tab3.tabName = "日料";
+        tab3.tabName = "日式料理";
         tab3.tabType = 3;
         tab1.viewPagerPosition = 2;
         mTabs.add(tab3);
@@ -161,20 +161,20 @@ public class MergeFragment extends Fragment {
 
 
                         TextView mTextView = (TextView) mTextViewField.get(tabView);
-                        mTextView.setTextSize(DensityUtil.dip2px(mActivity, 16));
-                        mTextView.setTextColor(mActivity.getResources().getColor(R.color.colorPrimary, null));
+                        mTextView.setTextColor(mActivity.getResources().getColor(R.color.color_c_848484, null));
                         tabView.setPadding(0, 0, 0, 0);
 
                         //因为我想要的效果是   字多宽线就多宽，所以测量mTextView的宽度
                         int width = 0;
-                        int dpMargin = 20; //每个tab所需间距
+                        int dpMarginMin = 0; //每个tab所需最小间距
+                        int dpMargin = dpMarginMin;
                         width = mTextView.getWidth();
                         if (width == 0) {
                             mTextView.measure(0, 0);
                             width = mTextView.getMeasuredWidth();
                         }
 
-                        if(width > 0 && tabWidth > width) {
+                        if(width > 0 && tabWidth - dpMarginMin > width) {
                             dpMargin = (tabWidth - width) / 2;
                         }
 
