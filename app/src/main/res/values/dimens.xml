@@ -22,5 +22,9 @@
     <dimen name="text_size_12sp">12sp</dimen>
     <dimen name="text_size_9sp">9sp</dimen>
     <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_9dp">9dp</dimen>
+    <dimen name="text_size_10dp">10dp</dimen>
+    <dimen name="text_size_11dp">11dp</dimen>
+    <dimen name="text_size_12dp">12dp</dimen>
 
 </resources>
