@@ -1,14 +1,11 @@
 package com.example.shanliang.mvvmtest;
 
 
+import android.app.Activity;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -30,7 +27,7 @@ import fragment.MergeFragment;
  * Created by shanliang on 2018/6/6.
  */
 
-public class NewCategoryActivity extends AppCompatActivity {
+public class NewCategoryActivity extends Activity {
 
     private Context mContext;
 
@@ -60,8 +57,8 @@ public class NewCategoryActivity extends AppCompatActivity {
     }
 
     private void init() {
-        getSupportActionBar().hide();
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getSupportActionBar().hide();
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mContext = NewCategoryActivity.this;
         inflater = LayoutInflater.from(mContext);
         flContainer = (FrameLayout) findViewById(R.id.fl_container);
@@ -106,7 +103,7 @@ public class NewCategoryActivity extends AppCompatActivity {
     }
 
     private void resetRightFragment(int type) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fl_container, FragmentCreator.getFragment(type)).commit();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fl_container, FragmentCreator.getFragment(type, NewCategoryActivity.this)).commit();
     }
 }
