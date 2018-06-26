@@ -35,7 +35,8 @@
         <activity android:name=".ShadowEdgeActivity"/>
         <activity android:name=".AACActivity"/>
         <activity android:name=".TabLayoutActivity"/>
-        <activity android:name=".NewCategoryActivity"/>
+        <activity android:name=".NewCategoryActivity"
+            android:theme="@style/Theme.Design.Light"/>
         <activity android:name=".KillAssSecondActivity"
             android:configChanges="fontScale|screenSize"
             android:launchMode="singleTop"

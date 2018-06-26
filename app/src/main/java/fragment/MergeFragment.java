@@ -1,10 +1,11 @@
 package fragment;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +40,7 @@ public class MergeFragment extends Fragment {
 
     private Context mContext;
 
-    private FragmentActivity mActivity;
+    private Activity mActivity;
 
     private TabLayout tlTop;
 
@@ -80,7 +81,6 @@ public class MergeFragment extends Fragment {
     private int tabWidth = 0;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_layout_activity,container,false);
@@ -91,21 +91,20 @@ public class MergeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        init();
         initTab();
         initData();
     }
 
-    private void init() {
-        mActivity = getActivity();
+    public MergeFragment init(Activity activity) {
+        mActivity = activity;
         mContext = mActivity;
         inflater = LayoutInflater.from(mContext);
+        return this;
     }
 
     private void initView(View view) {
