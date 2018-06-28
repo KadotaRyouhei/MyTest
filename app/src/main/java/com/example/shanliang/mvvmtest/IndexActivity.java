@@ -33,6 +33,7 @@ public class IndexActivity extends Activity {
     }
 
     private void initData() {
+        addIndex("GoAlgorithm", AlgorithmActivity.class);
         addIndex("GoNewCategory", NewCategoryActivity.class);
         addIndex("GoTabActivity", TabLayoutActivity.class);
         addIndex("GoAACActivity", AACActivity.class);
