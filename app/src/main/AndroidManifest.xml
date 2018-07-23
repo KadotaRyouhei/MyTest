@@ -22,6 +22,7 @@
         <activity android:name=".DataBindingFragmentActivity"/>
         <activity android:name=".RecyclerViewActivity"/>
         <activity android:name=".RXJavaActivity"/>
+        <activity android:name=".RXJava2Activity"/>
         <activity android:name=".AutoTextViewActivity"/>
         <activity android:name=".CardViewPagerActivity"/>
         <activity android:name=".SwipeCardActivity"/>
