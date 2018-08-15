@@ -39,6 +39,7 @@
         <activity android:name=".AACActivity"/>
         <activity android:name=".TabLayoutActivity"/>
         <activity android:name=".AlgorithmActivity"/>
+        <activity android:name=".SQLiteActivity"/>
         <activity android:name=".NewCategoryActivity"
             android:theme="@style/Theme.Design.Light"/>
         <activity android:name=".KillAssSecondActivity"
