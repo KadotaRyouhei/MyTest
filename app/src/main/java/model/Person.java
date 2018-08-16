@@ -21,12 +21,44 @@ public class Person {
         this.info = info;
     }
 
+    public static final String[] PARTIAL_PROJECTION = new String[] {
+            "_id",
+            "name",
+            "age",
+            "info"
+    };
+
     public int get_id() {
         return _id;
     }
 
-    public void set_id(int id) {
-        _id = id;
+    public void set_id(int _id) {
+        this._id = _id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
 
 }

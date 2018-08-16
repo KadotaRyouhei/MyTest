@@ -40,6 +40,19 @@ public class DBManager {
         }
     }
 
+    public void insertData(Person p) {
+        db.beginTransaction();
+        try{
+            db.execSQL("INSERT INTO person VALUES(null,?,?,?)",
+                    new Object[]{p.name,p.age,p.info});
+            db.setTransactionSuccessful();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
     public List<Person> findAllPerson() {
         ArrayList<Person> persons = new ArrayList<>();
         Cursor c = db.rawQuery("SELECT * FROM person", null);

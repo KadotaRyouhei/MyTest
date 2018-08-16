@@ -17,6 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:authorities="${applicationId}.person.provider"
+            android:name="provider.PersonContentProvider"
+            android:exported="true"/>
         <activity android:name=".FirstActivity"/>
         <activity android:name=".DataBindingActivity"/>
         <activity android:name=".DataBindingFragmentActivity"/>
@@ -40,6 +45,7 @@
         <activity android:name=".TabLayoutActivity"/>
         <activity android:name=".AlgorithmActivity"/>
         <activity android:name=".SQLiteActivity"/>
+        <activity android:name=".ShowSQLiteDataActivity"/>
         <activity android:name=".NewCategoryActivity"
             android:theme="@style/Theme.Design.Light"/>
         <activity android:name=".KillAssSecondActivity"

@@ -22,6 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
+        //LocalCupboard.getAnnotatedInstance().withDatabase(db).createTables();
         db.execSQL("CREATE TABLE IF NOT EXISTS person(_id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " name VARCHAR,age INTEGER, info TEXT)");//建表，对数据库进行操作等
 
@@ -29,6 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion){
+        //LocalCupboard.getAnnotatedInstance().withDatabase(db).upgradeTables();
         db.execSQL("ALTER TABLE person COLUMN other STRING");
     }
 }

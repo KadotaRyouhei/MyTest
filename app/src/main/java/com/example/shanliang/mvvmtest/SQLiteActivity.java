@@ -2,7 +2,9 @@ package com.example.shanliang.mvvmtest;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Utils.DBManager;
+import Utils.LocalCupboard;
 import model.Person;
+import provider.PersonContentProvider;
 
 /**
  * 在此添加 类功能描述
@@ -26,7 +30,9 @@ public class SQLiteActivity extends Activity {
 
     private Button btnCreate;
     private Button btnInsert;
+    private Button btnClear;
     private Button btnCheck;
+    private Button btnShowData;
     private TextView tvCheck;
 
     private SQLiteDatabase db;
@@ -54,7 +60,16 @@ public class SQLiteActivity extends Activity {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Person p4 = new Person("tom4",27,"cute");
+                dm.insertData(p4);
+            }
+        });
 
+        btnClear = findViewById(R.id.btn_clear);
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearData();
             }
         });
 
@@ -66,7 +81,15 @@ public class SQLiteActivity extends Activity {
             }
         });
 
-        dm = new DBManager(this);
+        btnShowData= findViewById(R.id.btn_show_list);
+        btnShowData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showData();
+            }
+        });
+
+        //dm = new DBManager(this);
     }
 
     @Override
@@ -76,23 +99,31 @@ public class SQLiteActivity extends Activity {
     }
 
     private void createDataBase() {
-        List<Person> people = new ArrayList<>();
         Person p1 = new Person("tom1",21,"cute");
-        Person p2 = new Person("tom2",21,"cute");
-        Person p3 = new Person("tom3",21,"cute");
-        Person p4 = new Person("tom4",21,"cute");
-        Person p5 = new Person("tom5",21,"cute");
-        people.add(p1);
-        people.add(p2);
-        people.add(p3);
-        people.add(p4);
-        people.add(p5);
-
-        dm.add(people);
+        create(p1);
+        Person p2 = new Person("tom2",22,"cute");
+        create(p2);
+        Person p3 = new Person("tom3",23,"cute");
+        create(p3);
+        Person p4 = new Person("tom4",24,"cute");
+        create(p4);
+        Person p5 = new Person("tom5",25,"cute");
+        create(p5);
     }
 
-    private void insertData() {
 
+    private void clearData() {
+        getContentResolver().delete(PersonContentProvider.TRANSACTION_URI, null, null);
+    }
+
+    private void create(Person person) {
+        ContentValues values = LocalCupboard.getInstance().withEntity(Person.class).toContentValues(person);
+        getContentResolver().insert(PersonContentProvider.TRANSACTION_URI, values);
+    };
+
+    private void showData() {
+        Intent intent = new Intent(this, ShowSQLiteDataActivity.class);
+        startActivity(intent);
     }
 
     private void checkData() {

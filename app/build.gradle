@@ -42,6 +42,8 @@ dependencies {
 
     compile "com.android.support:design:27.1.1"
 
+    compile 'nl.qbusict:cupboard:2.1.4'
+
     testCompile 'junit:junit:4.12'
 
     // ViewModel and LiveData
