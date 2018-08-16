@@ -12,6 +12,7 @@ import com.example.shanliang.mvvmtest.R;
 
 import Utils.LocalCupboard;
 import holder.SQLPersonHolder;
+import model.Book;
 import model.Person;
 
 /**
@@ -39,7 +40,7 @@ public class SQLiteAdapter extends RecyclerView.Adapter<SQLPersonHolder> {
 
             @Override
             public void bindView(View view, Context context, Cursor cursor) {
-                final Person person = LocalCupboard.getInstance().withCursor(cursor).get(Person.class);
+                final Book person = LocalCupboard.getInstance().withCursor(cursor).get(Book.class);
                 final SQLPersonHolder holder = (SQLPersonHolder) view.getTag();
                 holder.initData(person);
             }

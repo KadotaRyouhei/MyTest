@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.example.shanliang.mvvmtest.R;
 
+import model.Book;
 import model.Person;
 
 /**
@@ -26,10 +27,9 @@ public class SQLPersonHolder extends RecyclerView.ViewHolder {
         tvAge = (TextView) view.findViewById(R.id.tv_person_age);
     }
 
-    public void initData(Person person) {
+    public void initData(Book person) {
         if(person != null) {
-            tvName.setText(person.name);
-            tvAge.setText(person.age + "");
+            tvName.setText(person.getBookName());
         }
     }
 

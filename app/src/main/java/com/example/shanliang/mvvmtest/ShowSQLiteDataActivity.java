@@ -13,8 +13,10 @@ import android.text.TextUtils;
 
 import Utils.DBManager;
 import adapter.SQLiteAdapter;
+import model.Book;
 import model.Person;
 import nl.qbusict.cupboard.Cupboard;
+import provider.BookProvider;
 import provider.PersonContentProvider;
 
 /**
@@ -60,8 +62,8 @@ public class ShowSQLiteDataActivity extends AppCompatActivity implements LoaderM
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         CursorLoader loader = new CursorLoader(ShowSQLiteDataActivity.this);
-        loader.setUri(PersonContentProvider.TRANSACTION_URI);
-        loader.setProjection(Person.PARTIAL_PROJECTION);
+        loader.setUri(BookProvider.BOOK_URI);
+        loader.setProjection(Book.PARTIAL_PROJECTION);
         return loader;
     }
 

@@ -3,9 +3,11 @@ package com.example.shanliang.mvvmtest;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +17,9 @@ import java.util.List;
 
 import Utils.DBManager;
 import Utils.LocalCupboard;
+import model.Book;
 import model.Person;
+import provider.BookProvider;
 import provider.PersonContentProvider;
 
 /**
@@ -25,6 +29,8 @@ import provider.PersonContentProvider;
  * @date 2018/8/14
  */
 public class SQLiteActivity extends Activity {
+
+    private final String TAG = "SQLiteActivity";
 
     private DBManager dm;
 
@@ -89,7 +95,7 @@ public class SQLiteActivity extends Activity {
             }
         });
 
-        //dm = new DBManager(this);
+        dm = new DBManager(this);
     }
 
     @Override
@@ -99,7 +105,7 @@ public class SQLiteActivity extends Activity {
     }
 
     private void createDataBase() {
-        Person p1 = new Person("tom1",21,"cute");
+        /*Person p1 = new Person("tom1",21,"cute");
         create(p1);
         Person p2 = new Person("tom2",22,"cute");
         create(p2);
@@ -108,17 +114,31 @@ public class SQLiteActivity extends Activity {
         Person p4 = new Person("tom4",24,"cute");
         create(p4);
         Person p5 = new Person("tom5",25,"cute");
-        create(p5);
+        create(p5);*/
+        create();
     }
 
 
     private void clearData() {
-        getContentResolver().delete(PersonContentProvider.TRANSACTION_URI, null, null);
+        getContentResolver().delete(PersonContentProvider.PERSON_URI, null, null);
     }
 
-    private void create(Person person) {
-        ContentValues values = LocalCupboard.getInstance().withEntity(Person.class).toContentValues(person);
-        getContentResolver().insert(PersonContentProvider.TRANSACTION_URI, values);
+    private void create() {
+        //ContentValues values = LocalCupboard.getInstance().withEntity(Person.class).toContentValues(person);
+        //getContentResolver().insert(PersonContentProvider.PERSON_URI, values);
+        Uri bookUri = BookProvider.BOOK_URI;
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("bookName", "叫什么名字好呢");
+        getContentResolver().insert(bookUri, contentValues);
+        Cursor bookCursor = getContentResolver().query(bookUri, new String[]{"_id", "bookName"}, null, null, null);
+        if (bookCursor != null) {
+            while (bookCursor.moveToNext()) {
+                Log.e(TAG, "ID:" + bookCursor.getInt(bookCursor.getColumnIndex("_id"))
+                        + "  BookName:" + bookCursor.getString(bookCursor.getColumnIndex("bookName")));
+            }
+            bookCursor.close();
+        }
+
     };
 
     private void showData() {

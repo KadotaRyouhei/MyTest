@@ -27,23 +27,27 @@ public class PersonContentProvider extends ContentProvider {
 
     public static Uri TRANSACTION_URI;
 
+    public static Uri PERSON_URI;
+
     private static final int TRANSACTION = 0;
     private static final int TRANSACTIONS = 1;
     private static final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
 
-    private PersonDBHelper databaseHelper;
+    private DBHelper databaseHelper;
 
     @Override
     public void attachInfo(Context context, ProviderInfo info) {
         super.attachInfo(context, info);
-        TRANSACTION_URI = Uri.parse("content://" + info.authority + "/transaction");
+        //TRANSACTION_URI = Uri.parse("content://" + info.authority + "/transaction");
+        PERSON_URI = Uri.parse("content://" + info.authority + "/person");
         matcher.addURI(info.authority, "transaction/#", TRANSACTION);
         matcher.addURI(info.authority, "transaction", TRANSACTIONS);
+        matcher.addURI(info.authority, "person", TRANSACTIONS);
     }
 
     @Override
     public boolean onCreate() {
-        databaseHelper = new PersonDBHelper(getContext());
+        databaseHelper = new DBHelper(getContext());
         return true;
     }
 
@@ -86,11 +90,13 @@ public class PersonContentProvider extends ContentProvider {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         switch (matcher.match(uri)) {
             case TRANSACTIONS:
-                long id = db.insert(LocalCupboard.getInstance().getTable(Person.class), null, contentValues);
+                String tableName = LocalCupboard.getInstance().getTable(Person.class);
+                long id = db.insert(tableName, null, contentValues);
                 if (id > 0) {
                     getContext().getContentResolver().notifyChange(uri, null);
-                    return ContentUris.withAppendedId(TRANSACTION_URI, id);
+                    return ContentUris.withAppendedId(PERSON_URI, id);
                 }
+                //db.insert("person",null,contentValues);
         }
         return null;
     }

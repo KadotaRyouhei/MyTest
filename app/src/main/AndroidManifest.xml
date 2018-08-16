@@ -22,6 +22,10 @@
             android:authorities="${applicationId}.person.provider"
             android:name="provider.PersonContentProvider"
             android:exported="true"/>
+        <provider
+            android:name="provider.BookProvider"
+            android:authorities="com.shanliang.provider"
+            android:exported="true"/>
         <activity android:name=".FirstActivity"/>
         <activity android:name=".DataBindingActivity"/>
         <activity android:name=".DataBindingFragmentActivity"/>

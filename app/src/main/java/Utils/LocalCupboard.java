@@ -1,5 +1,6 @@
 package Utils;
 
+import model.Book;
 import model.Person;
 import nl.qbusict.cupboard.Cupboard;
 import nl.qbusict.cupboard.CupboardBuilder;
@@ -16,6 +17,7 @@ public class LocalCupboard {
 
     static {
         getInstance().register(Person.class);
+        getInstance().register(Book.class);
     }
 
     public static Cupboard getInstance() {
