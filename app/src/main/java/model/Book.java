@@ -1,5 +1,7 @@
 package model;
 
+import nl.qbusict.cupboard.annotation.Index;
+
 /**
  * 在此添加 类功能描述
  *
@@ -8,8 +10,8 @@ package model;
  */
 public class Book {
 
-    private int _id;
-    private String bookName;
+    private Long _id;
+    @Index private String bookName;
 
 
     public Book() {
@@ -24,11 +26,11 @@ public class Book {
             "bookName"
     };
 
-    public int get_id() {
+    public Long get_id() {
         return _id;
     }
 
-    public void set_id(int _id) {
+    public void set_id(Long _id) {
         this._id = _id;
     }
 
@@ -36,7 +38,7 @@ public class Book {
         return bookName;
     }
 
-    public void setBookName(String name) {
+    public void setBookName(String bookName) {
         this.bookName = bookName;
     }
 

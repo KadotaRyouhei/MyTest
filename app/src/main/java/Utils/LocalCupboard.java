@@ -16,7 +16,6 @@ public class LocalCupboard {
     private static Cupboard cupboard;
 
     static {
-        getInstance().register(Person.class);
         getInstance().register(Book.class);
     }
 

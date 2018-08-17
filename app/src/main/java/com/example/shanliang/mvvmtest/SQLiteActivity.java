@@ -66,8 +66,7 @@ public class SQLiteActivity extends Activity {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Person p4 = new Person("tom4",27,"cute");
-                dm.insertData(p4);
+                insertData();
             }
         });
 
@@ -83,7 +82,7 @@ public class SQLiteActivity extends Activity {
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkData();
+
             }
         });
 
@@ -105,30 +104,31 @@ public class SQLiteActivity extends Activity {
     }
 
     private void createDataBase() {
-        /*Person p1 = new Person("tom1",21,"cute");
-        create(p1);
-        Person p2 = new Person("tom2",22,"cute");
-        create(p2);
-        Person p3 = new Person("tom3",23,"cute");
-        create(p3);
-        Person p4 = new Person("tom4",24,"cute");
-        create(p4);
-        Person p5 = new Person("tom5",25,"cute");
-        create(p5);*/
         create();
     }
 
 
+    private void insertData() {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("bookName", "图书喜+1");
+        getContentResolver().insert(BookProvider.BOOK_URI, contentValues);
+    }
+
+
     private void clearData() {
-        getContentResolver().delete(PersonContentProvider.PERSON_URI, null, null);
+        getContentResolver().delete(BookProvider.BOOK_URI, null, null);
     }
 
     private void create() {
         //ContentValues values = LocalCupboard.getInstance().withEntity(Person.class).toContentValues(person);
         //getContentResolver().insert(PersonContentProvider.PERSON_URI, values);
         Uri bookUri = BookProvider.BOOK_URI;
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("bookName", "叫什么名字好呢");
+        ContentValues values = new ContentValues();
+        values.put("bookName","威震天");
+        getContentResolver().insert(bookUri, values);
+        Book book = new Book();
+        book.setBookName("擎天柱");
+        ContentValues contentValues = LocalCupboard.getInstance().withEntity(Book.class).toContentValues(book);
         getContentResolver().insert(bookUri, contentValues);
         Cursor bookCursor = getContentResolver().query(bookUri, new String[]{"_id", "bookName"}, null, null, null);
         if (bookCursor != null) {
@@ -146,17 +146,6 @@ public class SQLiteActivity extends Activity {
         startActivity(intent);
     }
 
-    private void checkData() {
-        List<Person> list = dm.findAllPerson();
-        if(list != null) {
-            if(list.size() > 0) {
-                Person pF = list.get(0);
-                tvCheck.setText(pF.name);
-            } else {
-                tvCheck.setText("no person");
-            }
-        }
-    }
 
 
 

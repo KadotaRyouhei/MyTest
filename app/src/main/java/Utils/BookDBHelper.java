@@ -19,7 +19,7 @@ public class BookDBHelper extends SQLiteOpenHelper {
     private static final int DATE_BASE_VERSION = 1;
 
     //表名-书
-    public static final String BOOK_TABLE_NAME = "book";
+    public static final String BOOK_TABLE_NAME = "Book";
 
     //表名-用户
     public static final String USER_TABLE_NAME = "user";
@@ -38,8 +38,9 @@ public class BookDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_BOOK_TABLE);
-        db.execSQL(CREATE_USER_TABLE);
+        //db.execSQL(CREATE_BOOK_TABLE);
+        //db.execSQL(CREATE_USER_TABLE);
+        LocalCupboard.getAnnotatedInstance().withDatabase(db).createTables();
     }
 
     @Override

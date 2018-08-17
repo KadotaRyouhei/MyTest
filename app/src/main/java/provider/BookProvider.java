@@ -36,7 +36,7 @@ public class BookProvider extends ContentProvider {
     @Override
     public void attachInfo(Context context, ProviderInfo info) {
         super.attachInfo(context, info);
-        BOOK_URI = Uri.parse("content://" + info.authority + "/book");
+        BOOK_URI = Uri.parse("content://" + info.authority + "/Book");
         AUTHORITY = info.authority;
         uriMatcher.addURI(info.authority, BookDBHelper.BOOK_TABLE_NAME, BOOK_URI_CODE);
         uriMatcher.addURI(info.authority, BookDBHelper.USER_TABLE_NAME, USER_URI_CODE);
@@ -69,16 +69,16 @@ public class BookProvider extends ContentProvider {
     //初始化原始数据
     private void initProviderData() {
         sqLiteDatabase = new BookDBHelper(context).getWritableDatabase();
-        sqLiteDatabase.beginTransaction();
+        /*sqLiteDatabase.beginTransaction();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bookName", "数据结构");
+        contentValues.put("bookName", "数据结构呀");
         sqLiteDatabase.insert(BookDBHelper.BOOK_TABLE_NAME, null, contentValues);
-        contentValues.put("bookName", "编译原理");
+        contentValues.put("bookName", "编译原理啊");
         sqLiteDatabase.insert(BookDBHelper.BOOK_TABLE_NAME, null, contentValues);
-        contentValues.put("bookName", "网络原理");
+        contentValues.put("bookName", "网络原理哈");
         sqLiteDatabase.insert(BookDBHelper.BOOK_TABLE_NAME, null, contentValues);
         sqLiteDatabase.setTransactionSuccessful();
-        sqLiteDatabase.endTransaction();
+        sqLiteDatabase.endTransaction();*/
 
         /*contentValues.put("userName", "叶");
         contentValues.put("sex", "女");
