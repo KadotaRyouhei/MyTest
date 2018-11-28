@@ -1,12 +1,17 @@
 package com.example.shanliang.mvvmtest;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.View;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONObject;
+
+import java.util.LinkedList;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -17,6 +22,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+import model.MessageEvent;
 
 /**
  * Created by shanliang on 2018/5/10.
@@ -26,7 +32,7 @@ public class RXJava2Activity extends Activity {
 
     private final String TAG = "RXJava2Activity";
 
-    private TextView tvRun;
+    private TextView tvRun, tvTestEventBus;
 
     private View.OnClickListener onClickListener;
 
@@ -35,6 +41,10 @@ public class RXJava2Activity extends Activity {
     private Observable<JSONObject> observableJSON;
 
     private Observer<Integer> observer;
+
+    private LruCache<String,Bitmap> lruCache;
+
+    private LinkedList<String> linkedList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +59,7 @@ public class RXJava2Activity extends Activity {
 
     private void init() {
         tvRun = (TextView) findViewById(R.id.tv_run);
+        tvTestEventBus = (TextView) findViewById(R.id.tv_event_bus_test);
     }
 
     private void initListener() {
@@ -60,6 +71,15 @@ public class RXJava2Activity extends Activity {
             }
         };
         tvRun.setOnClickListener(onClickListener);
+
+        tvTestEventBus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post(new MessageEvent("欧蕾哇，海邹库"));
+                finish();
+            }
+        });
+
     }
 
     private void initObserver3() {

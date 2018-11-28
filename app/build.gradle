@@ -44,6 +44,8 @@ dependencies {
 
     compile 'nl.qbusict:cupboard:2.1.4'
 
+    compile 'org.greenrobot:eventbus:3.0.0'
+
     testCompile 'junit:junit:4.12'
 
     // ViewModel and LiveData

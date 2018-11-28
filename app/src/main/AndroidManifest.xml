@@ -49,6 +49,7 @@
         <activity android:name=".TabLayoutActivity"/>
         <activity android:name=".AlgorithmActivity"/>
         <activity android:name=".SQLiteActivity"/>
+        <activity android:name=".EventBusActivity"/>
         <activity android:name=".ShowSQLiteDataActivity"/>
         <activity android:name=".NewCategoryActivity"
             android:theme="@style/Theme.Design.Light"/>
