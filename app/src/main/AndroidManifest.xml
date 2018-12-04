@@ -48,8 +48,10 @@
         <activity android:name=".AACActivity"/>
         <activity android:name=".TabLayoutActivity"/>
         <activity android:name=".AlgorithmActivity"/>
+        <activity android:name=".AlgorithmAlterActivity"/>
         <activity android:name=".SQLiteActivity"/>
         <activity android:name=".EventBusActivity"/>
+        <activity android:name=".OkHttpTestActivity"/>
         <activity android:name=".ShowSQLiteDataActivity"/>
         <activity android:name=".NewCategoryActivity"
             android:theme="@style/Theme.Design.Light"/>

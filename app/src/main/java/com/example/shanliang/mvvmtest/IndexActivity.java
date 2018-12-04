@@ -33,6 +33,8 @@ public class IndexActivity extends Activity {
     }
 
     private void initData() {
+        addIndex("GoAlgorithmAlter", AlgorithmAlterActivity.class);
+        addIndex("GoOkHttpTest", OkHttpTestActivity.class);
         addIndex("GoEventBus", EventBusActivity.class);
         addIndex("GoSQLite", SQLiteActivity.class);
         addIndex("GoRXJava2", RXJava2Activity.class);
