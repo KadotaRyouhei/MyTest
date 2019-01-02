@@ -3,9 +3,16 @@ package com.example.shanliang.mvvmtest;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PriorityQueue;
+
+import okhttp3.OkHttpClient;
 
 /**
  * Created by shanliang on 2018/11/28.
@@ -13,7 +20,10 @@ import org.greenrobot.eventbus.EventBus;
 
 public class OkHttpTestActivity extends Activity {
 
+    private Button button;
     private TextView tvSendRequest;
+    private List<Integer> list = new ArrayList<>();
+    private PriorityQueue<Integer> pq = new PriorityQueue<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +48,6 @@ public class OkHttpTestActivity extends Activity {
     }
 
     private void sendRequest() {
-
+        OkHttpClient okHttpClient = new OkHttpClient();
     }
 }
